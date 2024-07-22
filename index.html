@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Text Editor</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+</head>
+<body>
+    <div class="editor-container">
+        <div class="toolbar">
+            <button onclick="addText()">Add Text</button>
+            <input type="file" id="uploadImage" style="display:none;" onchange="addImage(this)">
+            <button onclick="document.getElementById('uploadImage').click()">Add Image</button>
+            <button onclick="execCmd('bold')"><b>B</b></button>
+            <button onclick="execCmd('italic')"><i>I</i></button>
+            <button onclick="execCmd('underline')"><u>U</u></button>
+            <select id="fontFamilySelector"></select>
+            <select id="fontSizeSelector"></select>
+            <input type="color" onchange="execCmdArg('foreColor', this.value)">
+            <input type="color" onchange="changeBackgroundColor(this.value)" title="Paint Bucket">
+            <button onclick="execCmd('undo')">Undo</button>
+            <button onclick="execCmd('redo')">Redo</button>
+        </div>
+        <div id="editor" contenteditable="true" placeholder="Start editing..."></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
